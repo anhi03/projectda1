@@ -9,10 +9,10 @@ import Event.EventMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-//import views.SPchitietView;
-//import views.SanPhamView;
-//import views.ThuocTinhView;
-//import views.home;
+import views.SPchitietView;
+import views.SanPhamView;
+import views.ThuocTinhView;
+import views.home;
 
 /**
  *
@@ -31,23 +31,23 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void selected(int index) {
                 if (index == 0) {
+                    setForm(new home());
+                } else if (index == 1) {
+                    setForm(new home());
+                } else if (index == 2) {
+                    setForm(new SanPhamView());
+                } else if (index == 3) {
+                    setForm(new SPchitietView());
+                } else if (index == 4) {
+                    setForm(new ThuocTinhView());
+                } else if (index == 5) {
 //                    setForm(new home());
-//                } else if (index == 1) {
+                } else if (index == 6) {
 //                    setForm(new home());
-//                } else if (index == 2) {
-//                    setForm(new SanPhamView());
-//                } else if (index == 3) {
-//                    setForm(new SPchitietView());
-//                } else if (index == 4) {
-//                    setForm(new ThuocTinhView());
-//                } else if (index == 5) {
-////                    setForm(new home());
-//                } else if (index == 6) {
-////                    setForm(new home());
-//                } else if (index == 7) {
-////                    setForm(new home());
-//                } else if (index == 8) {
-//                    
+                } else if (index == 7) {
+//                    setForm(new home());
+                } else if (index == 8) {
+                    
                 } else {
                     int choice = JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát không");
                     if (choice == 0) {

@@ -1,0 +1,50 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package DAO;
+
+import Utils.Dbconnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author Admin
+ */
+public class Sanphamdao {
+    public List<String> getLoaiSanPhamList() {
+//        List<String[]> list = new ArrayList<>();
+//        String sql = "SELECT id, tenLoaiSanPham FROM LoaiSanPham";
+//
+//        try (Connection conn = Dbconnection.getConnection(); 
+//                PreparedStatement ps = conn.prepareStatement(sql); 
+//                ResultSet rs = ps.executeQuery()) {
+//
+//            while (rs.next()) {
+//                list.add(new String[]{rs.getString("id"), rs.getString("tenLoaiSanPham")});
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return list;
+        List<String> list = new ArrayList<>();
+        String sql = "SELECT id FROM LoaiSanPham";  // Cột chứa khóa chính
+
+        try (Connection conn = Dbconnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            
+            while (rs.next()) {
+                list.add(rs.getString("id"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+}
