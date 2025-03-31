@@ -47,6 +47,7 @@ public class SPchitietView extends javax.swing.JPanel {
     
     void loadcombobox() {
         SPchitietDAO dao = new SPchitietDAO();
+        
         cbbIDSP.removeAllItems();
         for (String item : dao.getProductList()) {
             cbbIDSP.addItem(item); 
@@ -91,6 +92,9 @@ public class SPchitietView extends javax.swing.JPanel {
         btnUPDATE = new javax.swing.JButton();
         btnXoamem = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblspctdaremove = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         tblSPchitiet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -220,20 +224,52 @@ public class SPchitietView extends javax.swing.JPanel {
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("sản phẩm chi tiết", jPanel1);
+
+        tblspctdaremove.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "ma spchitiet", "id_sanpham", "id_mausac", "id_kichthuoc", "soluong", "gia", "trangthai"
+            }
+        ));
+        tblspctdaremove.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblspctdaremoveMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblspctdaremove);
+
+        jButton1.setText("hiện");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -311,6 +347,10 @@ public class SPchitietView extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnXoamemActionPerformed
 
+    private void tblspctdaremoveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblspctdaremoveMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblspctdaremoveMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnADD;
@@ -319,6 +359,7 @@ public class SPchitietView extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbbIDKT;
     private javax.swing.JComboBox<String> cbbIDMS;
     private javax.swing.JComboBox<String> cbbIDSP;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -328,8 +369,10 @@ public class SPchitietView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblSPchitiet;
+    private javax.swing.JTable tblspctdaremove;
     private javax.swing.JTextField txtGiaBan;
     private javax.swing.JTextField txtSoluongton;
     private javax.swing.JTextField txtmaspct;
@@ -345,6 +388,6 @@ public class SPchitietView extends javax.swing.JPanel {
         idsize = Integer.parseInt(cbbIDKT.getSelectedItem().toString()); 
         soluong = Integer.parseInt(txtSoluongton.getText()); 
         gia = Long.parseLong(txtGiaBan.getText());
-        return new SPchitiet(i, maspct, idsize, idsize, idcolor, soluong, gia, Boolean.TRUE);
+        return new SPchitiet(i, maspct, idproduct, idcolor, idsize, soluong, gia, Boolean.TRUE);
     }
 }

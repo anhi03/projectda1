@@ -17,22 +17,8 @@ import java.util.List;
  */
 public class Sanphamdao {
     public List<String> getLoaiSanPhamList() {
-//        List<String[]> list = new ArrayList<>();
-//        String sql = "SELECT id, tenLoaiSanPham FROM LoaiSanPham";
-//
-//        try (Connection conn = Dbconnection.getConnection(); 
-//                PreparedStatement ps = conn.prepareStatement(sql); 
-//                ResultSet rs = ps.executeQuery()) {
-//
-//            while (rs.next()) {
-//                list.add(new String[]{rs.getString("id"), rs.getString("tenLoaiSanPham")});
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return list;
         List<String> list = new ArrayList<>();
-        String sql = "SELECT id FROM LoaiSanPham";  // Cột chứa khóa chính
+        String sql = "SELECT id FROM LoaiSanPham where trangthai=1"; 
 
         try (Connection conn = Dbconnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
