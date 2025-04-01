@@ -524,7 +524,7 @@ public class ThuocTinhView extends javax.swing.JPanel {
 
         if (rp.addms(mausac) > 0) {
             JOptionPane.showMessageDialog(this, "Thêm thành công!");
-            filltotablems(rp.getallms()); // Cập nhật bảng ngay sau khi thêm
+            filltotablems(rp.getallms()); 
         } else {
             JOptionPane.showMessageDialog(this, "Thêm thất bại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
@@ -561,8 +561,8 @@ public class ThuocTinhView extends javax.swing.JPanel {
         String ma = txtmams.getText(); // Lấy mã màu từ ô nhập liệu
 
         int confirm = JOptionPane.showConfirmDialog(this,
-                "Bạn có chắc chắn muốn xóa màu sắc này?",
-                "Xác nhận xóa",
+                "Bạn có chắc chắn muốn ẩn màu sắc này?",
+                "Xác nhận ẩn",
                 JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
@@ -587,7 +587,7 @@ public class ThuocTinhView extends javax.swing.JPanel {
 
         if (rep.addkt(size) > 0) {
             JOptionPane.showMessageDialog(this, "Thêm thành công!");
-            filltotablekt(rep.getallkt()); // Cập nhật bảng ngay sau khi thêm
+            filltotablekt(rep.getallkt());
         } else {
             JOptionPane.showMessageDialog(this, "Thêm thất bại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
@@ -616,14 +616,14 @@ public class ThuocTinhView extends javax.swing.JPanel {
         // TODO add your handling code here:
         int i = tblkichthuoc.getSelectedRow(); // Lấy dòng đang chọn
         if (i == -1) {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn màu sắc cần xóa!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn kích thước cần xóa!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         String ma = txtMaKichthuoc.getText(); // Lấy mã màu từ ô nhập liệu
 
         int confirm = JOptionPane.showConfirmDialog(this,
-                "Bạn có chắc chắn muốn xóa màu sắc này?",
+                "Bạn có chắc chắn muốn xóa kích thước này?",
                 "Xác nhận xóa",
                 JOptionPane.YES_NO_OPTION);
 
@@ -683,21 +683,21 @@ public class ThuocTinhView extends javax.swing.JPanel {
         // TODO add your handling code here:
         int i = tblLoaisanpham.getSelectedRow(); // Lấy dòng đang chọn
         if (i == -1) {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn màu sắc cần xóa!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn loại sản phẩm cần xóa!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         String ma = txtMaLoaisp.getText(); // Lấy mã màu từ ô nhập liệu
 
         int confirm = JOptionPane.showConfirmDialog(this,
-                "Bạn có chắc chắn muốn xóa màu sắc này?",
+                "Bạn có chắc chắn muốn xóa  loại sản phẩm này?",
                 "Xác nhận xóa",
                 JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
             if (repo.deletelsp(ma) > 0) {
                 JOptionPane.showMessageDialog(this, "Xóa thành công!");
-                filltotablelsp(repo.getalllsp()); // Cập nhật bảng sau khi xóa
+                filltotablelsp(repo.getalllsp());
             } else {
                 JOptionPane.showMessageDialog(this, "Xóa thất bại!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
