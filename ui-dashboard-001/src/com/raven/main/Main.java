@@ -9,6 +9,7 @@ import Event.EventMenu;
 import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import views.JpanelNhanVien;
 import views.SPchitietView;
 import views.SanPhamView;
 import views.ThuocTinhView;
@@ -31,9 +32,9 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void selected(int index) {
                 if (index == 0) {
-                    setForm(new home());
+                    setForm(new JpanelNhanVien());
                 } else if (index == 1) {
-                    setForm(new home());
+                    setForm(new JpanelNhanVien());
                 } else if (index == 2) {
                     setForm(new SanPhamView());
                 } else if (index == 3) {
