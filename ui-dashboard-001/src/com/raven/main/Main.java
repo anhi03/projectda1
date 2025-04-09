@@ -46,6 +46,7 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 6) {
 //                    setForm(new home());
                 } else if (index == 7) {
+                } else if (index == 8) {
 
                 } else {
                     int choice = JOptionPane.showConfirmDialog(null, "Bạn có muốn thoát không");

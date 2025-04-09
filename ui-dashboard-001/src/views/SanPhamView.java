@@ -299,7 +299,7 @@ public class SanPhamView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     Sanpham readform() {
-        String masp, tensp, mota;
+        String masp, tensp, mota, tenlsp;
         int idlsp;
         masp = txtmasp.getText();
         tensp = txttensp.getText();

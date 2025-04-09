@@ -20,13 +20,13 @@ public class SPchitietDAO {
     
     public ArrayList<String> getProductList(){
         List<String> list = new ArrayList<>();
-        sql = "select id from SanPham where trangthai=1";
+        sql = "select tenSP from SanPham where trangthai=1";
         try {
             con = Dbconnection.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {                
-                list.add(rs.getString("id"));
+                list.add(rs.getString("tenSP"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,13 +36,13 @@ public class SPchitietDAO {
     
     public ArrayList<String> getCOLORList(){
         List<String> list = new ArrayList<>();
-        sql = "select id from MauSac where trangthai=1";
+        sql = "select tenmau from MauSac where trangthai=1";
         try {
             con = Dbconnection.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {                
-                list.add(rs.getString("id"));
+                list.add(rs.getString("tenmau"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,13 +52,13 @@ public class SPchitietDAO {
     
     public ArrayList<String> getSIZEList(){
         List<String> list = new ArrayList<>();
-        sql = "select id from KichThuoc where trangthai=1";
+        sql = "select tenKichThuoc from KichThuoc where trangthai=1";
         try {
             con = Dbconnection.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {                
-                list.add(rs.getString("id"));
+                list.add(rs.getString("tenKichThuoc"));
             }
         } catch (Exception e) {
             e.printStackTrace();

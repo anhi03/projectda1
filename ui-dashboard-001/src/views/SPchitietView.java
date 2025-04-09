@@ -104,7 +104,7 @@ public class SPchitietView extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "ma spchitiet", "id_sanpham", "id_mausac", "id_kichthuoc", "soluong", "gia", "trangthai"
+                "ID", "ma spchitiet", "tensanpham", "tenmausac", "tenkichthuoc", "soluong", "gia", "trangthai"
             }
         ));
         tblSPchitiet.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,15 +116,15 @@ public class SPchitietView extends javax.swing.JPanel {
 
         jLabel1.setText("ma spct");
 
-        jLabel2.setText("id_sanpham");
+        jLabel2.setText("tensanpham");
 
-        jLabel3.setText("id_mausac");
+        jLabel3.setText("tenmausac");
 
         jLabel4.setText("gia");
 
         jLabel5.setText("soluong");
 
-        jLabel6.setText("id_kichthuoc");
+        jLabel6.setText("kichthuoc");
 
         btnADD.setText("add");
         btnADD.addActionListener(new java.awt.event.ActionListener() {
@@ -378,16 +378,15 @@ public class SPchitietView extends javax.swing.JPanel {
     private javax.swing.JTextField txtmaspct;
     // End of variables declaration//GEN-END:variables
 
-    SPchitiet readform(){
-        String maspct;
-        int idproduct, idcolor, idsize, soluong;
-        Long gia;
-        maspct= txtmaspct.getText();
-        idproduct = Integer.parseInt(cbbIDSP.getSelectedItem().toString()); 
-        idcolor = Integer.parseInt(cbbIDMS.getSelectedItem().toString()); 
-        idsize = Integer.parseInt(cbbIDKT.getSelectedItem().toString()); 
-        soluong = Integer.parseInt(txtSoluongton.getText()); 
-        gia = Long.parseLong(txtGiaBan.getText());
-        return new SPchitiet(i, maspct, idproduct, idcolor, idsize, soluong, gia, Boolean.TRUE);
+    public SPchitiet readform() {
+        String maSPCT = txtmaspct.getText().trim(); // Mã sản phẩm chi tiết
+        String tenSanPham = cbbIDSP.getSelectedItem().toString(); // Tên sản phẩm từ combobox
+        String tenMauSac = cbbIDMS.getSelectedItem().toString(); // Tên màu sắc từ combobox
+        String tenKichThuoc = cbbIDKT.getSelectedItem().toString(); // Tên kích thước từ combobox
+
+        int soLuongTon = Integer.parseInt(txtSoluongton.getText().trim());
+        long giaBan = Long.parseLong(txtGiaBan.getText().trim());
+
+        return new SPchitiet(maSPCT, tenSanPham, tenMauSac, tenKichThuoc, soLuongTon, giaBan, true);
     }
 }

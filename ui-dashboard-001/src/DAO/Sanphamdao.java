@@ -18,14 +18,14 @@ import java.util.List;
 public class Sanphamdao {
     public List<String> getLoaiSanPhamList() {
         List<String> list = new ArrayList<>();
-        String sql = "SELECT id FROM LoaiSanPham where trangthai=1"; 
+        String sql = "SELECT tenLoaiSanPham FROM LoaiSanPham where trangthai=1"; 
 
         try (Connection conn = Dbconnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             
             while (rs.next()) {
-                list.add(rs.getString("id"));
+                list.add(rs.getString("tenLoaiSanPham"));
             }
         } catch (Exception e) {
             e.printStackTrace();

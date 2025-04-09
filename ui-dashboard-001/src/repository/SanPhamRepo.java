@@ -24,7 +24,16 @@ public class SanPhamRepo {
     
     public ArrayList<Sanpham> getall(){
         ArrayList<Sanpham> list = new ArrayList<>();
-        sql = "select id, maSP, tenSP, moTa, id_loaiSanPham, trangthai from SanPham where trangthai=1";
+        sql = "SELECT \n"
+                + "    sp.id,\n"
+                + "    sp.maSP,\n"
+                + "    sp.tenSP,\n"
+                + "    sp.mota,\n"
+                + "    lsp.tenLoaiSanPham,\n"
+                + "    sp.trangthai \n"
+                + "FROM SanPham sp \n"
+                + "JOIN LoaiSanPham lsp ON sp.id_loaiSanPham = lsp.id "
+                + "where sp.trangThai=1;";
         try {
             con = Dbconnection.getConnection();
             ps = con.prepareStatement(sql);
@@ -35,7 +44,7 @@ public class SanPhamRepo {
                 sp.setMasp(rs.getString(2));
                 sp.setTensp(rs.getString(3));
                 sp.setMota(rs.getString(4));
-                sp.setId_lsp(rs.getInt(5));
+                sp.setTenlsp(rs.getString(5));
                 sp.setTrangthai(rs.getBoolean(6));
                 list.add(sp);
             }

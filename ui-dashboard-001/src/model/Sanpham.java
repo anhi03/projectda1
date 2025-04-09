@@ -20,6 +20,7 @@ public class Sanpham {
     private String tensp;
     private String mota;
     private int id_lsp;
+    private String tenlsp;
     private Boolean trangthai;
 
     public Sanpham() {
@@ -33,6 +34,16 @@ public class Sanpham {
         this.id_lsp = id_lsp;
         this.trangthai = trangthai;
     }
+
+    public Sanpham(String masp, String tensp, String mota, int id_lsp, String tenlsp, Boolean trangthai) {
+        this.masp = masp;
+        this.tensp = tensp;
+        this.mota = mota;
+        this.id_lsp = id_lsp;
+        this.tenlsp = tenlsp;
+        this.trangthai = trangthai;
+    }
+    
 
     public int getId() {
         return id;
@@ -82,6 +93,14 @@ public class Sanpham {
         this.trangthai = trangthai;
     }
 
+    public String getTenlsp() {
+        return tenlsp;
+    }
+
+    public void setTenlsp(String tenlsp) {
+        this.tenlsp = tenlsp;
+    }
+
     
     public Object[] addtorow() {
     return new Object[]{
@@ -89,7 +108,7 @@ public class Sanpham {
         this.getMasp(),
         this.getTensp(),
         this.getMota(),
-        this.getId_lsp(),
+        this.getTenlsp(),
         this.getTrangthai()
     };
 }
